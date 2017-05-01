@@ -1,7 +1,7 @@
 
 def get_next(source):
     p_len = len(source)
-    next_array = [0] * 8
+    next_array = [0] * p_len
     next_array[0]  = -1
     k = -1
     j = 0
@@ -19,4 +19,4 @@ def get_next(source):
     print next_array
 
 if __name__ == '__main__':
-    get_next('abaabcac')
+    get_next('abcabaad')
