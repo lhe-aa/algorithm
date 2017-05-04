@@ -24,7 +24,7 @@ def cal(all_bottles):
                         # print color_0, color_1, color_2
                         # print bin_0_movement, bin_1_movement, bin_2_movement
                         total_movement = bin_0_movement + bin_1_movement + bin_2_movement
-                        if not min_movements or total_movement < min_movements or (total_movement == min_movements and colors_sequence > [color_0, color_1, color_2]):
+                        if min_movements == None or total_movement < min_movements or (total_movement == min_movements and colors_sequence > [color_0, color_1, color_2]):
                             min_movements = total_movement
                             colors_sequence = [color_0, color_1, color_2]
     print("{}{}{} {}".format(colors_sequence[0], colors_sequence[1], colors_sequence[2], min_movements))
@@ -39,14 +39,17 @@ def get_movement(all_bottles, bin, color):
     return movement
 
 
+import sys
+
+
 def solution():
 
-    line = input()
-    while line.strip():
+    for line in sys.stdin:
+        if not line.strip():
+            break
         # all_bottles = map(int, line.split())
         all_bottles = [int(x) for x in line.split()]
         cal(all_bottles)
-        line = input()
 
 # if __name__ == '__main__':
 solution()
